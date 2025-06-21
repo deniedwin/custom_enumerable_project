@@ -1,5 +1,13 @@
 module Enumerable
   # Your code goes here
+  def my_all? # FIX THIS! 21-06-2025
+    for elem in self
+      if elem < test
+        return false 
+      end
+      true
+    end
+  end
 end
 
 # You will first have to define my_each
