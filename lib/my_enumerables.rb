@@ -1,12 +1,10 @@
 module Enumerable
   # Your code goes here
-  def my_all? # FIX THIS! 21-06-2025
-    for elem in self
-      if elem < test
-        return false 
-      end
-      true
+  def my_all?
+    self.my_each do |element|
+      return false unless yield(element)
     end
+    true
   end
 end
 
@@ -17,8 +15,8 @@ end
 class Array
   # Define my_each here
   def my_each
-    for elem in self
-      yield(elem)
+    for each_element in self
+      yield(each_element)
     end
   end
 end
