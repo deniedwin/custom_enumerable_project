@@ -2,9 +2,11 @@ module Enumerable
   # Your code goes here
   def my_all?
     self.my_each do |element|
-      return false unless yield(element)
+      if !yield(element)
+        return false
+      end
     end
-    true
+    return true
   end
 end
 
