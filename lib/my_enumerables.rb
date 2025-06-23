@@ -2,12 +2,24 @@ module Enumerable
   # Your code goes here
   def my_all?
     self.my_each do |element|
-      if !yield(element)
-        return false
-      end
+      passed = yield(element)
+      return false unless passed
     end
     return true
   end
+
+  def my_each_with_index
+    index = 0
+    for each_element in self
+      yield(each_element, index)
+      index += 1
+    end
+  end
+
+  def my_select
+    puts 'do something'
+  end
+
 end
 
 # You will first have to define my_each
