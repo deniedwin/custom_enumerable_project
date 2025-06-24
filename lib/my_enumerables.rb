@@ -17,7 +17,11 @@ module Enumerable
   end
 
   def my_select
-    puts 'do something'
+    result = []
+    for each_element in self
+      result << each_element if yield(each_element)
+    end
+    return result
   end
 
 end
