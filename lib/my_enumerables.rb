@@ -32,6 +32,14 @@ module Enumerable
     return false
   end
 
+  def my_none?
+    self.my_each do |element|
+      passed = yield(element)
+      return false if passed
+    end
+    return true
+  end
+
 end
 
 # You will first have to define my_each
