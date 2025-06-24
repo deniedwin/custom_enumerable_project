@@ -18,8 +18,8 @@ module Enumerable
 
   def my_select
     result = []
-    for each_element in self
-      result << each_element if yield(each_element)
+    self.my_each do |element|
+      result << element if yield(element)
     end
     return result
   end
