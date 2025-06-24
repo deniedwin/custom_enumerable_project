@@ -1,13 +1,6 @@
 module Enumerable
   # Your code goes here
-  def my_all?
-    self.my_each do |element|
-      passed = yield(element)
-      return false unless passed
-    end
-    return true
-  end
-
+  
   def my_each_with_index
     index = 0
     for each_element in self
@@ -22,6 +15,21 @@ module Enumerable
       result << element if yield(element)
     end
     return result
+  end
+
+  def my_all?
+    self.my_each do |element|
+      passed = yield(element)
+      return false unless passed
+    end
+    return true
+  end
+
+  def my_any?
+    self.my_each do |element|
+      return true if yield(element)
+    end
+    return false
   end
 
 end
