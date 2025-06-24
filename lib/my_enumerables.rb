@@ -62,6 +62,15 @@ module Enumerable
     return result
   end
 
+  def my_inject(init)
+    result = init
+    if block_given?
+      self.my_each do |element|
+        result = yield(result, element) # this was the hard part, to know to pass 2 arguemnts in the yield
+      end
+    end
+    return result
+  end
 end
 
 # You will first have to define my_each
